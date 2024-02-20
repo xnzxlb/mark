@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 import requests
 import schedule
 import datetime
@@ -74,5 +75,6 @@ schedule.every(interval).seconds.do(Request)
 try:
     while True:
         schedule.run_pending()
+        time.sleep(1)  # 减少CPU占用
 except KeyboardInterrupt:
     sys.exit(0)
